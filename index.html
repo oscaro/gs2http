@@ -8,19 +8,34 @@
         max-width: 1200px;
         margin: auto;
       }
+      #gs, input.submit {
+        padding: 10px 20px;
+        font-size: 1.6em;
+        border: 1px solid black;
+        border-radius: 4px;
+      }
       #gs {
         margin-top: 20px;
         margin-bottom: 10px;
-        border: 1px solid black;
-        border-radius: 4px;
-        padding: 10px 20px;
-        font-size: 1.6em;
         font-family: monaco, monospace;
         min-width: 300px;
       }
       #result {
         font-size: 1.2em;
         padding-left: 2px;
+      }
+      input.submit {
+        margin-left: 10px;
+        padding-top: 11px;
+        background-color: #2ECC40;
+      }
+      input.submit:hover {
+        background-color: #2FCF45;
+      }
+      input.submit:active {
+        position: relative;
+        top: 1px;
+        padding-bottom: 9px;
       }
       @media (min-width: 420px) { #gs { min-width: 400px; } }
       @media (min-width: 768px) {
@@ -38,6 +53,7 @@
       <h1><code>gs://</code> to <code>https://</code></h1>
       <form action="#" id="form">
         <input type="url" name="gs" id="gs" placeholder="gs://..." autocomplete="off" autofocus />
+        <input type="submit" value="Go" class="submit" />
       </form>
       <pre><a id="result" href="#"></a></pre>
     </div>
