@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>gs to http</title>
+  </head>
+  <body>
+    <h1><code>gs://</code> to <code>https://</code></h1>
+    <form action="#" id="form">
+      <input type="url" name="gs" id="gs" />
+    </form>
+    <pre><a id="result" href="#"></a></pre>
+    <script>
+      (function() {
+        var gsInput = document.getElementById("gs"),
+            result = document.getElementById("result"),
+
+            gsProtocol_re = /^gs:\/\//;
+
+        function gs2https_directory(gs) {
+          return gs.replace(gsProtocol_re, "https://console.cloud.google.com/storage/browser/");
+        }
+
+        function gs2https_file(gs) {
+          return gs.replace(gsProtocol_re, "https://storage.cloud.google.com/");
+        }
+
+        function gs2https(value) {
+          if (value[value.length-1] == "/") {
+            return gs2https_directory(value);
+          }
+          if (/\.[a-z]{2,}(?:-\d+-of-\d+)?$/.test(value)) {
+            return gs2https_file(value);
+          }
+
+          // default
+          return gs2https_directory(value);
+        }
+
+        function run_gs2https(e) {
+          var gs = gs2https(gsInput.value) || "";
+
+          e.preventDefault();
+
+          result.setAttribute("href", gs);
+          result.textContent = gs;
+        }
+
+        document.getElementById("form").onsubmit = run_gs2https;
+      })();
+    </script>
+  </body>
+</html>
+
