@@ -3,13 +3,44 @@
   <head>
     <meta charset="utf-8" />
     <title>gs to http</title>
+    <style>
+      .main {
+        max-width: 1200px;
+        margin: auto;
+      }
+      #gs {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        border: 1px solid black;
+        border-radius: 4px;
+        padding: 10px 20px;
+        font-size: 1.6em;
+        font-family: monaco, monospace;
+        min-width: 300px;
+      }
+      #result {
+        font-size: 1.2em;
+        padding-left: 2px;
+      }
+      @media (min-width: 420px) { #gs { min-width: 400px; } }
+      @media (min-width: 768px) {
+        #gs {
+          margin-top: 40px;
+          margin-bottom: 20px;
+          min-width: 640px;
+        }
+      }
+      @media (min-width: 1200px) { #gs { min-width: 900px; } }
+    </style>
   </head>
   <body>
-    <h1><code>gs://</code> to <code>https://</code></h1>
-    <form action="#" id="form">
-      <input type="url" name="gs" id="gs" />
-    </form>
-    <pre><a id="result" href="#"></a></pre>
+    <div class="main">
+      <h1><code>gs://</code> to <code>https://</code></h1>
+      <form action="#" id="form">
+        <input type="url" name="gs" id="gs" placeholder="gs://..." autocomplete="off" />
+      </form>
+      <pre><a id="result" href="#"></a></pre>
+    </div>
     <script>
       (function() {
         var gsInput = document.getElementById("gs"),
