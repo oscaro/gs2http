@@ -9,4 +9,5 @@ You can see it live at [oscaro.github.io/gs2http/](https://oscaro.github.io/gs2h
 
 ## Deployment
 
-The whole tool is just a single `index.html` you can drop anywhere.
+The whole tool is just a single `index.html` you can drop anywhere. It doesn’t
+send any data to any server; everything’s stay in your browser.
